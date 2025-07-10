@@ -29,6 +29,7 @@
         'security/ir.model.access.csv',
         'views/drawing_technical_views.xml',
         'views/sale_order_line_views.xml',
+        'views/mrp_production_views.xml',
         'views/mrp_extend_menus.xml',
     ],
     'application': True,
