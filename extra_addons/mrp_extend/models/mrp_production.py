@@ -1,17 +1,10 @@
-from odoo import models, _
+from odoo import models, _, api
 from odoo.exceptions import UserError
 
 class MrpProduction(models.Model):
     _inherit = 'mrp.production'
 
-    def create(self, vals):
-        self._check_quantity()
-        return super().create(vals)
-    
-    def write(self, vals):
-        self._check_quantity()
-        return super().write(vals)
-
+    @api.constrains('move_raw_ids')
     def _check_quantity(self):
         """Chức năng kiểm tra xem số lượng trong kho còn đủ để sản xuất hay không"""
         for rec in self:
