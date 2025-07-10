@@ -40,11 +40,7 @@
             <tree string="Technical Drawings">
                 <field name="name"/>
                 <field name="product_id"/>
-<<<<<<< HEAD
                 <field name="order_line_id" widget="many2may_tags"/>
-=======
-                <field name="order_line_id"/>
->>>>>>> aef4edcb44f9796754fd7c310f06dd127bab35a4
                 <field name="date_created"/>
             </tree>
         </field>
