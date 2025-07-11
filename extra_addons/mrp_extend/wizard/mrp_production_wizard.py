@@ -13,7 +13,6 @@ class MrpProductionWiz(models.TransientModel):
     file_name = fields.Char(string='File name', tracking=True)
 
     def action_import(self):
-        time_start = time.time()
         active_id = self.env.context.get('active_id')
         if not active_id:
             raise MissingError(_("Manufacturing order records are not found."))
@@ -50,6 +49,3 @@ class MrpProductionWiz(models.TransientModel):
             }))
 
         mo.move_raw_ids = [(5, 0, 0)] + lines # Xóa toàn bộ dữ liệu cũ và ghi đè dữ liệu mới
-        time_end = time.time()
-        duration = time_end - time_start
-        print(f'\nQuá trình import mất: {duration}s\n')
