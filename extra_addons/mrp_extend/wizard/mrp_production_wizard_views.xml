@@ -10,6 +10,7 @@
                     <group>
                         <field name="file_import" widget="binary" filename="file_name" />
                         <field name="file_name" invisible="1"/>
+                        <button string="Download template" name="action_download_template" type="object" icon="fa-download" />
                     </group>
                     <footer>
                         <button string="Import" name="action_import" type="object" class="btn-primary"/>

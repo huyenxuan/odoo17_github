@@ -1,9 +1,11 @@
 from odoo import fields, models, _
 from odoo.exceptions import UserError, MissingError
+from odoo.modules import get_module_path
+from odoo.http import request
 import base64
 import io
 from openpyxl import load_workbook
-import time
+import os
 
 class MrpProductionWiz(models.TransientModel):
     _name = 'mrp.product.wiz'
@@ -47,5 +49,11 @@ class MrpProductionWiz(models.TransientModel):
                 'name': product_name,
                 'product_uom_qty': quantity,
             }))
-
         mo.move_raw_ids = [(5, 0, 0)] + lines # Xóa toàn bộ dữ liệu cũ và ghi đè dữ liệu mới
+
+    def action_download_template(self):
+        return {
+            'type': 'ir.actions.act_url',
+            'url': '/mrp_production/template_import_lines',
+            'target': 'self',
+        }
